@@ -1,74 +1,210 @@
 <!DOCTYPE html>
-<html lang="en"> 
-  
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Stephy Jose</title>
-  <style>
-    :root { --accent: #8a1538; }
-    body { font-family: -apple-system, Georgia, serif; max-width: 820px;
-           margin: 40px auto; padding: 0 20px; line-height: 1.65; color: #1a1a1a; }
-    header { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
-    .headshot { width: 150px; height: 150px; object-fit: cover;
-                border-radius: 50%; border: 3px solid var(--accent); }
-    h1 { margin: 0; }
-    .subtitle { color: #666; font-size: 1.1em; margin-top: 4px; }
-    nav { margin: 24px 0; border-bottom: 1px solid #ddd; padding-bottom: 10px; }
-    nav a { margin-right: 18px; text-decoration: none; color: var(--accent);
-            font-weight: 600; }
-    nav a:hover { text-decoration: underline; }
-    section { margin-top: 36px; }
-    h2 { color: var(--accent); border-left: 4px solid var(--accent);
-         padding-left: 10px; }
-    footer { margin-top: 60px; color: #999; font-size: 0.9em;
-             border-top: 1px solid #eee; padding-top: 16px; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stephy Jose</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Newsreader:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --accent: #8a1538;      /* MIT-ish crimson */
+    --ink: #1a1a1a;
+    --muted: #6b6b6b;
+    --bg: #ffffff;
+    --card: #f7f5f3;
+    --line: #e6e2dd;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: var(--ink); background: var(--bg);
+    line-height: 1.65; -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; background: rgba(255,255,255,0.9);
+    backdrop-filter: blur(8px); border-bottom: 1px solid var(--line);
+    z-index: 10;
+  }
+  nav .wrap { display: flex; justify-content: space-between;
+    align-items: center; height: 62px; }
+  nav .brand { font-weight: 700; font-size: 1.1rem; }
+  nav .links a {
+    margin-left: 22px; text-decoration: none; color: var(--ink);
+    font-size: 0.95rem; font-weight: 600; transition: color .2s;
+  }
+  nav .links a:hover { color: var(--accent); }
+
+  /* HERO */
+  header.hero { padding: 70px 0 50px; }
+  .hero .wrap { display: flex; gap: 40px; align-items: center;
+    flex-wrap: wrap; }
+  .hero img {
+    width: 190px; height: 190px; object-fit: cover; border-radius: 50%;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+  }
+  .hero h1 {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 2.8rem; line-height: 1.1; margin-bottom: 10px;
+  }
+  .hero .role { color: var(--accent); font-weight: 600;
+    font-size: 1.15rem; margin-bottom: 14px; }
+  .hero p { color: var(--muted); max-width: 460px; }
+  .social { margin-top: 18px; }
+  .social a {
+    display: inline-block; margin-right: 14px; text-decoration: none;
+    color: var(--accent); font-weight: 600; font-size: 0.9rem;
+    border: 1px solid var(--accent); padding: 6px 14px; border-radius: 20px;
+    transition: all .2s;
+  }
+  .social a:hover { background: var(--accent); color: #fff; }
+
+  /* SECTIONS */
+  section { padding: 46px 0; border-top: 1px solid var(--line); }
+  h2 {
+    font-family: 'Newsreader', serif; font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+  section p { color: #333; margin-bottom: 14px; }
+
+  /* PUBLICATION CARDS */
+  .pub {
+    background: var(--card); border-radius: 12px; padding: 20px 22px;
+    margin-bottom: 16px; transition: transform .2s, box-shadow .2s;
+    border: 1px solid var(--line);
+  }
+  .pub:hover { transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+  .pub .title { font-weight: 600; margin-bottom: 6px; }
+  .pub .meta { color: var(--muted); font-size: 0.9rem; }
+  .pub .links a { color: var(--accent); text-decoration: none;
+    font-size: 0.85rem; font-weight: 600; margin-right: 12px; }
+  .pub .links a:hover { text-decoration: underline; }
+
+  /* RESEARCH GRID (Tomi-style gallery) */
+  .grid { display: grid; grid-template-columns: repeat(auto-fill,
+    minmax(220px, 1fr)); gap: 18px; }
+  .card {
+    background: var(--card); border-radius: 12px; overflow: hidden;
+    border: 1px solid var(--line); transition: transform .2s, box-shadow .2s;
+  }
+  .card:hover { transform: translateY(-4px);
+    box-shadow: 0 10px 28px rgba(0,0,0,0.1); }
+  .card .thumb { height: 140px; background: linear-gradient(135deg,
+    var(--accent), #c94f70); }
+  .card .body { padding: 14px 16px; }
+  .card .body h3 { font-size: 1rem; margin-bottom: 4px; }
+  .card .body p { font-size: 0.85rem; color: var(--muted); margin: 0; }
+
+  footer { padding: 40px 0; border-top: 1px solid var(--line);
+    color: var(--muted); font-size: 0.9rem; text-align: center; }
+
+  @media (max-width: 560px) {
+    .hero h1 { font-size: 2.1rem; }
+    nav .links a { margin-left: 14px; font-size: 0.85rem; }
+  }
+</style>
 </head>
 <body>
-  <header>
-    <img src="headshot.jpg" alt="Stephy Jose" class="headshot">
+
+<nav>
+  <div class="wrap">
+    <span class="brand">Stephy Jose</span>
+    <div class="links">
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#publications">Publications</a>
+      <a href="cv.pdf">CV</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <img src="headshot.jpg" alt="Stephy Jose">
     <div>
       <h1>Stephy Jose</h1>
-      <p class="subtitle">Schmidt Science Fellow · MIT</p>
+      <div class="role">Schmidt Science Fellow · MIT</div>
+      <p>I study the fundamental principles governing nonequilibrium
+      systems — active matter, hydrodynamics, and transport phenomena.</p>
+      <div class="social">
+        <a href="mailto:sjose@mit.edu">Email</a>
+        <a href="#">Google Scholar</a>
+        <a href="#">arXiv</a>
+        <a href="#">ORCID</a>
+      </div>
     </div>
-  </header>
+  </div>
+</header>
 
-  <nav>
-    <a href="#about">About</a>
-    <a href="#research">Research</a>
-    <a href="#publications">Publications</a>
-    <a href="cv.pdf">CV</a>
-    <a href="mailto:sjose@mit.edu">Contact</a>
-  </nav>
-
-  <section id="about">
+<section id="about">
+  <div class="wrap">
     <h2>About</h2>
     <p>I am a Schmidt Science Fellow at MIT, hosted by Mehran Kardar and
-    Nikta Fakhri. My research centers on nonequilibrium statistical physics —
-    active matter, hydrodynamics, and transport phenomena. I earned my Ph.D.
-    at TIFR Hyderabad under Kabir Ramola and Mustansir Barma.</p>
-  </section>
+    Nikta Fakhri. My research centers on nonequilibrium statistical
+    physics. I completed my Ph.D. at TIFR Hyderabad under Kabir Ramola
+    and Mustansir Barma.</p>
+    <p>I use rigorous analytical and computational approaches — continuum
+    and lattice models, extreme value statistics, fluctuations,
+    coarse-graining, and macroscopic descriptions — to uncover the
+    principles that govern collective behavior far from equilibrium.</p>
+  </div>
+</section>
 
-  <section id="research">
+<section id="research">
+  <div class="wrap">
     <h2>Research</h2>
-    <p>I use rigorous analytical and computational approaches — continuum and
-    lattice models, extreme value statistics, fluctuations, coarse-graining,
-    and macroscopic descriptions — to uncover the fundamental principles
-    governing nonequilibrium systems.</p>
-  </section>
+    <div class="grid">
+      <div class="card">
+        <div class="thumb"></div>
+        <div class="body"><h3>Active Matter</h3>
+          <p>Collective dynamics of self-driven particles.</p></div>
+      </div>
+      <div class="card">
+        <div class="thumb"></div>
+        <div class="body"><h3>Hydrodynamics</h3>
+          <p>Coarse-grained descriptions of transport.</p></div>
+      </div>
+      <div class="card">
+        <div class="thumb"></div>
+        <div class="body"><h3>Fluctuations</h3>
+          <p>Extreme value statistics & large deviations.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <section id="publications">
+<section id="publications">
+  <div class="wrap">
     <h2>Publications</h2>
-    <ul>
-      <li><strong>Jose, S.</strong>, et al. "Title of paper."
-      <em>Journal Name</em> (Year). </li>
-      <!-- add more here -->
-    </ul>
-  </section>
+    <div class="pub">
+      <div class="title">Title of your paper goes here</div>
+      <div class="meta"><strong>S. Jose</strong>, Co-author.
+        <em>Journal Name</em>, Volume, Page (Year).</div>
+      <div class="links">
+        <a href="#">arXiv</a><a href="#">Journal</a><a href="#">PDF</a>
+      </div>
+    </div>
+    <div class="pub">
+      <div class="title">Another paper title</div>
+      <div class="meta"><strong>S. Jose</strong>, et al.
+        <em>Journal Name</em>, Volume, Page (Year).</div>
+      <div class="links">
+        <a href="#">arXiv</a><a href="#">Journal</a>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <footer>
-    <p>sjose@mit.edu · Massachusetts Institute of Technology</p>
-  </footer>
+<footer>
+  <div class="wrap">
+    sjose@mit.edu · Massachusetts Institute of Technology<br>
+    © 2026 Stephy Jose
+  </div>
+</footer>
+
 </body>
 </html>
