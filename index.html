@@ -4,207 +4,457 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Stephy Jose</title>
+<meta name="description" content="Stephy Jose — Schmidt Science Fellow at MIT working on non-equilibrium statistical physics, active matter, and biophysics.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Newsreader:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --accent: #8a1538;      /* MIT-ish crimson */
-    --ink: #1a1a1a;
-    --muted: #6b6b6b;
-    --bg: #ffffff;
-    --card: #f7f5f3;
-    --line: #e6e2dd;
+  :root{
+    --bg:#ffffff;
+    --text:#20242c;
+    --muted:#5c6470;
+    --accent:#8a1c2b;      /* deep maroon (MIT-ish) */
+    --accent-soft:#b5424f;
+    --line:#e7e9ee;
+    --card:#f7f8fa;
+    --maxw:900px;
   }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: 'Inter', -apple-system, sans-serif;
-    color: var(--ink); background: var(--bg);
-    line-height: 1.65; -webkit-font-smoothing: antialiased;
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Inter',system-ui,-apple-system,sans-serif;
+    color:var(--text);
+    background:var(--bg);
+    line-height:1.65;
+    font-size:16px;
+    -webkit-font-smoothing:antialiased;
   }
-  .wrap { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+  h1,h2,h3{font-family:'Lora',Georgia,serif;font-weight:600;line-height:1.25;color:var(--text);}
+  a{color:var(--accent);text-decoration:none;transition:color .2s;}
+  a:hover{color:var(--accent-soft);text-decoration:underline;}
 
-  /* NAV */
-  nav {
-    position: sticky; top: 0; background: rgba(255,255,255,0.9);
-    backdrop-filter: blur(8px); border-bottom: 1px solid var(--line);
-    z-index: 10;
+  /* ---------- NAV ---------- */
+  header.nav{
+    position:sticky;top:0;z-index:100;
+    background:rgba(255,255,255,.92);
+    backdrop-filter:saturate(180%) blur(10px);
+    border-bottom:1px solid var(--line);
   }
-  nav .wrap { display: flex; justify-content: space-between;
-    align-items: center; height: 62px; }
-  nav .brand { font-weight: 700; font-size: 1.1rem; }
-  nav .links a {
-    margin-left: 22px; text-decoration: none; color: var(--ink);
-    font-size: 0.95rem; font-weight: 600; transition: color .2s;
+  .nav-inner{
+    max-width:var(--maxw);margin:0 auto;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 24px;
   }
-  nav .links a:hover { color: var(--accent); }
+  .brand{font-family:'Lora',serif;font-weight:600;font-size:1.15rem;color:var(--text);}
+  .brand:hover{text-decoration:none;color:var(--accent);}
+  nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0;flex-wrap:wrap;}
+  nav a{
+    color:var(--muted);font-weight:500;font-size:.93rem;
+    letter-spacing:.02em;padding-bottom:2px;
+  }
+  nav a:hover,nav a.active{color:var(--accent);text-decoration:none;border-bottom:2px solid var(--accent);}
+  .menu-btn{display:none;background:none;border:0;font-size:1.5rem;cursor:pointer;color:var(--text);}
 
-  /* HERO */
-  header.hero { padding: 70px 0 50px; }
-  .hero .wrap { display: flex; gap: 40px; align-items: center;
-    flex-wrap: wrap; }
-  .hero img {
-    width: 190px; height: 190px; object-fit: cover; border-radius: 50%;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+  /* ---------- LAYOUT ---------- */
+  main{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+  section{padding:70px 0 40px;border-bottom:1px solid var(--line);scroll-margin-top:70px;}
+  section:last-of-type{border-bottom:0;}
+  section h2{
+    font-size:1.6rem;margin:0 0 24px;position:relative;padding-bottom:8px;
   }
-  .hero h1 {
-    font-family: 'Newsreader', Georgia, serif;
-    font-size: 2.8rem; line-height: 1.1; margin-bottom: 10px;
-  }
-  .hero .role { color: var(--accent); font-weight: 600;
-    font-size: 1.15rem; margin-bottom: 14px; }
-  .hero p { color: var(--muted); max-width: 460px; }
-  .social { margin-top: 18px; }
-  .social a {
-    display: inline-block; margin-right: 14px; text-decoration: none;
-    color: var(--accent); font-weight: 600; font-size: 0.9rem;
-    border: 1px solid var(--accent); padding: 6px 14px; border-radius: 20px;
-    transition: all .2s;
-  }
-  .social a:hover { background: var(--accent); color: #fff; }
+  section h2::after{content:"";position:absolute;left:0;bottom:0;width:52px;height:3px;background:var(--accent);border-radius:2px;}
 
-  /* SECTIONS */
-  section { padding: 46px 0; border-top: 1px solid var(--line); }
-  h2 {
-    font-family: 'Newsreader', serif; font-size: 1.8rem;
-    margin-bottom: 20px;
+  /* ---------- HERO / HOME ---------- */
+  #home{border-bottom:1px solid var(--line);}
+  .hero{display:flex;gap:42px;align-items:center;flex-wrap:wrap;padding-top:20px;}
+  .hero-photo{flex:0 0 220px;}
+  .hero-photo img{
+    width:220px;height:220px;object-fit:cover;border-radius:50%;
+    border:4px solid #fff;box-shadow:0 6px 26px rgba(0,0,0,.14);
   }
-  section p { color: #333; margin-bottom: 14px; }
-
-  /* PUBLICATION CARDS */
-  .pub {
-    background: var(--card); border-radius: 12px; padding: 20px 22px;
-    margin-bottom: 16px; transition: transform .2s, box-shadow .2s;
-    border: 1px solid var(--line);
+  .hero-text{flex:1;min-width:280px;}
+  .hero-text h1{font-size:2.3rem;margin:0 0 6px;}
+  .hero-role{color:var(--accent);font-weight:600;font-size:1.05rem;margin-bottom:2px;}
+  .hero-affil{color:var(--muted);font-size:.98rem;margin-bottom:18px;}
+  .hero-text p{color:var(--text);margin:0 0 18px;max-width:560px;}
+  .links{display:flex;gap:12px;flex-wrap:wrap;margin-top:6px;}
+  .links a{
+    display:inline-flex;align-items:center;gap:6px;
+    background:var(--card);border:1px solid var(--line);
+    padding:8px 14px;border-radius:8px;font-size:.88rem;font-weight:500;color:var(--text);
   }
-  .pub:hover { transform: translateY(-3px);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
-  .pub .title { font-weight: 600; margin-bottom: 6px; }
-  .pub .meta { color: var(--muted); font-size: 0.9rem; }
-  .pub .links a { color: var(--accent); text-decoration: none;
-    font-size: 0.85rem; font-weight: 600; margin-right: 12px; }
-  .pub .links a:hover { text-decoration: underline; }
+  .links a:hover{border-color:var(--accent);color:var(--accent);text-decoration:none;background:#fff;}
 
-  /* RESEARCH GRID (Tomi-style gallery) */
-  .grid { display: grid; grid-template-columns: repeat(auto-fill,
-    minmax(220px, 1fr)); gap: 18px; }
-  .card {
-    background: var(--card); border-radius: 12px; overflow: hidden;
-    border: 1px solid var(--line); transition: transform .2s, box-shadow .2s;
+  /* ---------- ABOUT ---------- */
+  .about-grid{display:grid;grid-template-columns:1fr;gap:16px;}
+  .tag-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;}
+  .tag{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:5px 14px;font-size:.83rem;color:var(--muted);}
+  .edu-item{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px dashed var(--line);flex-wrap:wrap;}
+  .edu-item:last-child{border-bottom:0;}
+  .edu-item .deg{font-weight:600;}
+  .edu-item .inst{color:var(--muted);font-size:.92rem;}
+  .edu-item .yr{color:var(--accent);font-weight:600;white-space:nowrap;font-size:.9rem;}
+
+  /* ---------- RESEARCH ---------- */
+  .research-block{margin-bottom:28px;}
+  .research-block h3{font-size:1.12rem;margin:0 0 6px;}
+  .research-block p{margin:0 0 8px;color:var(--text);}
+  .pub-list{list-style:none;padding:0;margin:0;counter-reset:pub;}
+  .pub-list li{
+    background:var(--card);border:1px solid var(--line);border-left:3px solid var(--accent);
+    border-radius:8px;padding:14px 16px;margin-bottom:12px;font-size:.93rem;
   }
-  .card:hover { transform: translateY(-4px);
-    box-shadow: 0 10px 28px rgba(0,0,0,0.1); }
-  .card .thumb { height: 140px; background: linear-gradient(135deg,
-    var(--accent), #c94f70); }
-  .card .body { padding: 14px 16px; }
-  .card .body h3 { font-size: 1rem; margin-bottom: 4px; }
-  .card .body p { font-size: 0.85rem; color: var(--muted); margin: 0; }
+  .pub-list .title{font-weight:600;display:block;margin:2px 0;}
+  .pub-list .venue{color:var(--muted);font-style:italic;font-size:.88rem;}
+  .pub-list .authors{color:var(--text);font-size:.88rem;}
+  .badge{display:inline-block;background:var(--accent);color:#fff;font-size:.7rem;font-weight:600;
+    padding:2px 8px;border-radius:10px;margin-left:6px;vertical-align:middle;letter-spacing:.03em;}
 
-  footer { padding: 40px 0; border-top: 1px solid var(--line);
-    color: var(--muted); font-size: 0.9rem; text-align: center; }
+  /* ---------- CV ---------- */
+  .timeline{border-left:2px solid var(--line);padding-left:22px;margin-top:10px;}
+  .tl-item{position:relative;padding-bottom:22px;}
+  .tl-item::before{content:"";position:absolute;left:-29px;top:5px;width:11px;height:11px;border-radius:50%;background:var(--accent);border:2px solid #fff;}
+  .tl-item .role{font-weight:600;}
+  .tl-item .place{color:var(--muted);font-size:.9rem;}
+  .tl-item .date{color:var(--accent);font-size:.82rem;font-weight:600;}
+  .award-list{list-style:none;padding:0;margin:0;}
+  .award-list li{padding:8px 0;border-bottom:1px dashed var(--line);font-size:.93rem;}
+  .award-list li:last-child{border-bottom:0;}
+  .cv-download{display:inline-flex;gap:8px;align-items:center;background:var(--accent);color:#fff;
+    padding:10px 20px;border-radius:8px;font-weight:600;margin-bottom:24px;}
+  .cv-download:hover{background:var(--accent-soft);color:#fff;text-decoration:none;}
+  .cv-subhead{font-family:'Lora',serif;font-weight:600;font-size:1.1rem;margin:26px 0 12px;color:var(--accent);}
 
-  @media (max-width: 560px) {
-    .hero h1 { font-size: 2.1rem; }
-    nav .links a { margin-left: 14px; font-size: 0.85rem; }
+  /* ---------- CONTACT ---------- */
+  .contact-grid{display:flex;gap:14px;flex-wrap:wrap;}
+  .contact-card{flex:1;min-width:220px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:20px;}
+  .contact-card h3{font-size:1rem;margin:0 0 6px;}
+  .contact-card p{margin:0;color:var(--muted);font-size:.92rem;}
+
+  /* ---------- GALLERY ---------- */
+  .gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px;}
+  .gallery figure{margin:0;border-radius:10px;overflow:hidden;background:var(--card);border:1px solid var(--line);}
+  .gallery img{width:100%;height:190px;object-fit:cover;display:block;transition:transform .4s ease;}
+  .gallery figure:hover img{transform:scale(1.06);}
+  .gallery figcaption{padding:9px 12px;font-size:.83rem;color:var(--muted);}
+  .ph{display:flex;align-items:center;justify-content:center;height:190px;color:#aab;background:
+    repeating-linear-gradient(45deg,#f2f3f6,#f2f3f6 12px,#ecedf1 12px,#ecedf1 24px);
+    font-size:.85rem;text-align:center;padding:10px;}
+
+  footer{text-align:center;padding:28px 20px;color:var(--muted);font-size:.85rem;}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media(max-width:680px){
+    nav ul{position:absolute;top:100%;right:0;left:0;flex-direction:column;gap:0;
+      background:#fff;border-bottom:1px solid var(--line);padding:8px 24px;display:none;}
+    nav ul.open{display:flex;}
+    nav ul li{padding:8px 0;border-bottom:1px solid var(--line);}
+    nav ul li:last-child{border-bottom:0;}
+    .menu-btn{display:block;}
+    .hero{flex-direction:column;text-align:center;}
+    .hero-photo{flex:0 0 auto;}
+    .links{justify-content:center;}
+    .hero-text h1{font-size:1.9rem;}
   }
 </style>
 </head>
 <body>
 
-<nav>
-  <div class="wrap">
-    <span class="brand">Stephy Jose</span>
-    <div class="links">
-      <a href="#about">About</a>
-      <a href="#research">Research</a>
-      <a href="#publications">Publications</a>
-      <a href="cv.pdf">CV</a>
-    </div>
-  </div>
-</nav>
-
-<header class="hero">
-  <div class="wrap">
-    <img src="headshot.jpg" alt="Stephy Jose">
-    <div>
-      <h1>Stephy Jose</h1>
-      <div class="role">Schmidt Science Fellow · MIT</div>
-      <p>I study the fundamental principles governing nonequilibrium
-      systems — active matter, hydrodynamics, and transport phenomena.</p>
-      <div class="social">
-        <a href="mailto:sjose@mit.edu">Email</a>
-        <a href="#">Google Scholar</a>
-        <a href="#">arXiv</a>
-        <a href="#">ORCID</a>
-      </div>
-    </div>
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <div class="nav-inner">
+    <a href="#home" class="brand">Stephy Jose</a>
+    <button class="menu-btn" aria-label="Menu" onclick="document.getElementById('menu').classList.toggle('open')">☰</button>
+    <nav>
+      <ul id="menu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#cv">CV</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+      </ul>
+    </nav>
   </div>
 </header>
 
+<main>
+
+<!-- ============ HOME ============ -->
+<section id="home">
+  <div class="hero">
+    <div class="hero-photo">
+      <img src="images/profile.jpg" alt="Stephy Jose">
+    </div>
+    <div class="hero-text">
+      <h1>Stephy Jose</h1>
+      <div class="hero-role">Schmidt Science Fellow</div>
+      <div class="hero-affil">Massachusetts Institute of Technology (MIT), Cambridge, USA</div>
+      <p>I am a theoretical physicist working at the interface of <strong>non-equilibrium
+      statistical physics</strong>, <strong>active matter</strong>, and <strong>biophysics</strong>.
+      I develop analytical and computational theories to uncover the fundamental principles
+      governing living and driven systems — from bacterial motion and self-organizing cell
+      aggregates to fluctuations, transport, and phase transitions in complex matter.</p>
+      <div class="links">
+        <a href="mailto:sjose@mit.edu">✉ Email</a>
+        <a href="#cv">📄 CV</a>
+        <a href="https://scholar.google.com/citations?user=KEauAnAAAAAJ&hl=en" target="_blank" rel="noopener">🎓 Google Scholar</a>
+        <a href="https://www.linkedin.com/in/stephy-jose-234674131/" target="_blank" rel="noopener">in LinkedIn</a>
+        <a href="https://www.researchgate.net/profile/Stephy-Jose-4" target="_blank" rel="noopener">🔬 ResearchGate</a>
+        <a href="https://schmidtsciencefellows.org/fellow/stephy-jose/" target="_blank" rel="noopener">★ Schmidt Fellows</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
 <section id="about">
-  <div class="wrap">
-    <h2>About</h2>
-    <p>I am a Schmidt Science Fellow at MIT, hosted by Mehran Kardar and
-    Nikta Fakhri. My research centers on nonequilibrium statistical
-    physics. I completed my Ph.D. at TIFR Hyderabad under Kabir Ramola
-    and Mustansir Barma.</p>
-    <p>I use rigorous analytical and computational approaches — continuum
-    and lattice models, extreme value statistics, fluctuations,
-    coarse-graining, and macroscopic descriptions — to uncover the
-    principles that govern collective behavior far from equilibrium.</p>
+  <h2>About</h2>
+  <p>I am currently a <strong>Schmidt Science Fellow</strong> at MIT, hosted by
+  <strong>Mehran Kardar</strong> and <strong>Nikta Fakhri</strong>, where I develop theoretical
+  models of collective cell behavior and self-organization in regenerating sea-sponge cell
+  aggregates. I was previously a <strong>Humboldt Research Fellow</strong> at Heinrich Heine
+  University Düsseldorf with <strong>Hartmut Löwen</strong>, studying memory and inertial effects
+  in active matter.</p>
+
+  <p>I earned my Ph.D. in Physics from the <strong>Tata Institute of Fundamental Research (TIFR),
+  Hyderabad</strong> in 2024, advised by <strong>Kabir Ramola</strong>, with a thesis on the
+  hydrodynamics and fluctuations of active particle motion. I hold an M.Sc. in Physics from the
+  University of Hyderabad (University gold medalist) and a B.Sc. in Physics from Mahatma Gandhi
+  University, Kerala.</p>
+
+  <h3 style="font-size:1.15rem;margin-top:28px;">Research Interests</h3>
+  <div class="tag-list">
+    <span class="tag">Non-equilibrium Statistical Physics</span>
+    <span class="tag">Active Matter</span>
+    <span class="tag">Biophysics</span>
+    <span class="tag">Phase Transitions in Living Matter</span>
+    <span class="tag">Population Genetics</span>
+    <span class="tag">Fluctuating Hydrodynamics</span>
+    <span class="tag">Large Deviations</span>
+    <span class="tag">Exclusion Processes</span>
+    <span class="tag">First-Passage & Extreme Value Problems</span>
+    <span class="tag">Complex Systems</span>
+  </div>
+
+  <h3 style="font-size:1.15rem;margin-top:32px;">Education</h3>
+  <div class="edu-item">
+    <div><span class="deg">Ph.D. in Physics</span><br><span class="inst">Tata Institute of Fundamental Research (TIFR), Hyderabad — Advisor: Kabir Ramola</span></div>
+    <div class="yr">2024</div>
+  </div>
+  <div class="edu-item">
+    <div><span class="deg">M.Sc. in Physics</span><br><span class="inst">University of Hyderabad — CGPA 9.6/10, University Gold Medalist</span></div>
+    <div class="yr">2019</div>
+  </div>
+  <div class="edu-item">
+    <div><span class="deg">B.Sc. in Physics</span><br><span class="inst">Mahatma Gandhi University, Kerala — CGPA 9.9/10, University Silver Medalist</span></div>
+    <div class="yr">2016</div>
   </div>
 </section>
 
+<!-- ============ RESEARCH ============ -->
 <section id="research">
-  <div class="wrap">
-    <h2>Research</h2>
-    <div class="grid">
-      <div class="card">
-        <div class="thumb"></div>
-        <div class="body"><h3>Active Matter</h3>
-          <p>Collective dynamics of self-driven particles.</p></div>
-      </div>
-      <div class="card">
-        <div class="thumb"></div>
-        <div class="body"><h3>Hydrodynamics</h3>
-          <p>Coarse-grained descriptions of transport.</p></div>
-      </div>
-      <div class="card">
-        <div class="thumb"></div>
-        <div class="body"><h3>Fluctuations</h3>
-          <p>Extreme value statistics & large deviations.</p></div>
-      </div>
+  <h2>Research</h2>
+
+  <div class="research-block">
+    <h3>Self-organization in sea-sponge cell aggregates <span class="badge">MIT · Now</span></h3>
+    <p>Developing theoretical models of collective cell behavior in regenerating sponge aggregates,
+    investigating self-organization and the emergence of multicellular structures in living systems.</p>
+  </div>
+
+  <div class="research-block">
+    <h3>Memory effects in active matter <span class="badge">HHU Düsseldorf</span></h3>
+    <p>Theoretical models of active particles with higher-order inertial and memory effects, with
+    analytical results for transport, fluctuations, and emergent dynamics of chiral active systems.</p>
+  </div>
+
+  <div class="research-block">
+    <h3>Hydrodynamics & fluctuations in active particle motion <span class="badge">Ph.D.</span></h3>
+    <p>Theories of active matter across microscopic and macroscopic scales, exploring the interplay
+    of activity, interactions, fluctuations, and initial conditions in driven systems.</p>
+  </div>
+
+  <div class="research-block">
+    <h3>Evolutionary models in population genetics</h3>
+    <p>An exact fluctuating hydrodynamic theory for the stepping-stone model, a fundamental model
+    of spatial population genetics.</p>
+  </div>
+
+  <h3 style="font-size:1.2rem;margin-top:36px;">Publications</h3>
+  <ul class="pub-list">
+    <li>
+      <span class="authors">S. Jose &amp; H. Löwen</span>
+      <span class="title">Jerky chiral active particles</span>
+      <span class="venue">New Journal of Physics 27, 115003 (2025)</span>
+    </li>
+    <li>
+      <span class="authors">A. Biswas, S. Jose, A. Pal &amp; K. Ramola</span>
+      <span class="title">Current fluctuations in finite-sized one-dimensional non-interacting passive and active systems</span>
+      <span class="venue">J. Phys. A: Math. Theor. 58, 035001 (2024)</span>
+    </li>
+    <li>
+      <span class="authors">S. Jose, A. Rosso &amp; K. Ramola</span>
+      <span class="title">Effect of initial conditions on current fluctuations in non-interacting active particles</span>
+      <span class="venue">J. Phys. A: Math. Theor. 57, 285002 (2024)</span>
+    </li>
+    <li>
+      <span class="authors">S. Jose, A. Rosso &amp; K. Ramola</span>
+      <span class="title">Generalized disorder averages and current fluctuations in run-and-tumble particles</span>
+      <span class="venue">Physical Review E 108, L052601 (2023)</span>
+    </li>
+    <li>
+      <span class="authors">S. Jose, R. Dandekar &amp; K. Ramola</span>
+      <span class="title">Current fluctuations in an interacting active lattice gas</span>
+      <span class="venue">J. Stat. Mech. 2023, 083208 (2023)</span>
+    </li>
+    <li>
+      <span class="authors">S. Jose</span>
+      <span class="title">First passage statistics of active random walks on one and two dimensional lattices</span>
+      <span class="venue">J. Stat. Mech. 2022, 113208 (2022)</span>
+    </li>
+    <li>
+      <span class="authors">S. Jose, D. Mandal, M. Barma &amp; K. Ramola</span>
+      <span class="title">Active random walks in one and two dimensions</span>
+      <span class="venue">Physical Review E 105, 064103 (2022)</span>
+    </li>
+  </ul>
+
+  <h3 style="font-size:1.2rem;margin-top:28px;">Preprints &amp; Manuscripts</h3>
+  <ul class="pub-list">
+    <li>
+      <span class="authors">R. Bhutia, S. Jose, P. Perlekar &amp; K. Ramola</span>
+      <span class="title">Diffusive noise controls early stages of genetic demixing</span>
+      <span class="venue">Under review — arXiv:2505.23698 (2025)</span>
+    </li>
+    <li>
+      <span class="authors">S. Jose</span>
+      <span class="title">First passage statistics of Poisson random walks on lattices</span>
+      <span class="venue">In preparation — arXiv:2110.14360</span>
+    </li>
+  </ul>
+</section>
+
+<!-- ============ CV ============ -->
+<section id="cv">
+  <h2>Curriculum Vitae</h2>
+  <a href="CV_Website.pdf" class="cv-download" target="_blank" rel="noopener">⬇ Download full CV (PDF)</a>
+
+  <div class="cv-subhead">Research Experience</div>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="date">Jan 2025 – Present</div>
+      <div class="role">Schmidt Science Fellow</div>
+      <div class="place">MIT, Cambridge, USA — Hosts: Mehran Kardar &amp; Nikta Fakhri</div>
+    </div>
+    <div class="tl-item">
+      <div class="date">Mar 2025 – Dec 2025</div>
+      <div class="role">Humboldt Research Fellow</div>
+      <div class="place">Heinrich Heine University, Düsseldorf, Germany — Host: Hartmut Löwen</div>
+    </div>
+    <div class="tl-item">
+      <div class="date">Oct 2024 – Feb 2025</div>
+      <div class="role">Research Associate</div>
+      <div class="place">TIFR Hyderabad, India — Host: Kabir Ramola</div>
+    </div>
+    <div class="tl-item">
+      <div class="date">Aug 2019 – Oct 2024</div>
+      <div class="role">Graduate Researcher (Ph.D.)</div>
+      <div class="place">TIFR Hyderabad, India — Advisor: Kabir Ramola</div>
+    </div>
+    <div class="tl-item">
+      <div class="date">Jul 2017 – Jun 2019</div>
+      <div class="role">Research Assistant</div>
+      <div class="place">University of Hyderabad, India — Advisor: P. K. Suresh</div>
+    </div>
+  </div>
+
+  <div class="cv-subhead">Selected Awards &amp; Honors</div>
+  <ul class="award-list">
+    <li><strong>Schmidt Science Fellowship</strong> (2025) — one of 32 fellows selected worldwide, in partnership with the Rhodes Trust.</li>
+    <li><strong>Humboldt Research Fellowship</strong> (2025) — Alexander von Humboldt Foundation, Germany.</li>
+    <li><strong>Two Gold Medals</strong> (2019) — ranked first in M.Sc. Physics, University of Hyderabad.</li>
+    <li><strong>Rank 2, B.Sc. Physics</strong> (2016) — Mahatma Gandhi University (among 1533 candidates).</li>
+    <li><strong>INSPIRE Award</strong> (2013) — Department of Science and Technology, India.</li>
+    <li><strong>State Topper</strong> — Higher Secondary Examination, Kerala (among ~650,000 candidates).</li>
+  </ul>
+
+  <div class="cv-subhead">Professional Skills</div>
+  <div class="tag-list">
+    <span class="tag">C</span><span class="tag">Fortran</span><span class="tag">Python</span>
+    <span class="tag">Mathematica</span><span class="tag">Molecular Dynamics</span>
+    <span class="tag">Monte Carlo</span><span class="tag">Finite Difference</span>
+    <span class="tag">Spectral Methods</span><span class="tag">Scientific Writing</span>
+    <span class="tag">Inkscape</span><span class="tag">ImageJ</span>
+  </div>
+
+  <div class="cv-subhead">Service</div>
+  <ul class="award-list">
+    <li><strong>Referee:</strong> Physical Review Letters, Physical Review E, Physical Review Research, J. Stat. Mech.</li>
+    <li><strong>Outreach:</strong> Sawaal-Jawaab (TIFR public-science initiative), IndiaBioscience columnist.</li>
+  </ul>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact">
+  <h2>Contact</h2>
+  <p>I am always happy to discuss research, collaborations, and outreach. Feel free to reach out.</p>
+  <div class="contact-grid">
+    <div class="contact-card">
+      <h3>Email</h3>
+      <p><a href="mailto:sjose@mit.edu">sjose@mit.edu</a></p>
+    </div>
+    <div class="contact-card">
+      <h3>Affiliation</h3>
+      <p>Condensed Matter Theory &amp; Physics of Living Systems (PLS)<br>
+      Massachusetts Institute of Technology<br>Cambridge, MA, USA</p>
+    </div>
+    <div class="contact-card">
+      <h3>Profiles</h3>
+      <p>
+        <a href="https://scholar.google.com/citations?user=KEauAnAAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a> ·
+        <a href="https://www.linkedin.com/in/stephy-jose-234674131/" target="_blank" rel="noopener">LinkedIn</a> ·
+        <a href="https://www.researchgate.net/profile/Stephy-Jose-4" target="_blank" rel="noopener">ResearchGate</a>
+      </p>
     </div>
   </div>
 </section>
 
-<section id="publications">
-  <div class="wrap">
-    <h2>Publications</h2>
-    <div class="pub">
-      <div class="title">Title of your paper goes here</div>
-      <div class="meta"><strong>S. Jose</strong>, Co-author.
-        <em>Journal Name</em>, Volume, Page (Year).</div>
-      <div class="links">
-        <a href="#">arXiv</a><a href="#">Journal</a><a href="#">PDF</a>
-      </div>
-    </div>
-    <div class="pub">
-      <div class="title">Another paper title</div>
-      <div class="meta"><strong>S. Jose</strong>, et al.
-        <em>Journal Name</em>, Volume, Page (Year).</div>
-      <div class="links">
-        <a href="#">arXiv</a><a href="#">Journal</a>
-      </div>
-    </div>
+<!-- ============ GALLERY ============ -->
+<section id="gallery">
+  <h2>Gallery</h2>
+  <p>A glimpse of talks, conferences, fellowship events, and life beyond the equations.
+  Replace the placeholders below with your own images in the <code>images/</code> folder.</p>
+  <div class="gallery">
+    <figure><img src="images/gallery1.jpg" alt="" onerror="this.outerHTML='&lt;div class=ph&gt;Add images/gallery1.jpg&lt;/div&gt;'"><figcaption>Schmidt Science Leadership Program, Oxford (2025)</figcaption></figure>
+    <figure><img src="images/gallery2.jpg" alt="" onerror="this.outerHTML='&lt;div class=ph&gt;Add images/gallery2.jpg&lt;/div&gt;'"><figcaption>Annual Humboldt Meeting, Berlin (2025)</figcaption></figure>
+    <figure><img src="images/gallery3.jpg" alt="" onerror="this.outerHTML='&lt;div class=ph&gt;Add images/gallery3.jpg&lt;/div&gt;'"><figcaption>Soft Matter Seminar, HHU Düsseldorf</figcaption></figure>
+    <figure><img src="images/gallery4.jpg" alt="" onerror="this.outerHTML='&lt;div class=ph&gt;Add images/gallery4.jpg&lt;/div&gt;'"><figcaption>PLS Seminar, MIT</figcaption></figure>
+    <figure><img src="images/gallery5.jpg" alt="" onerror="this.outerHTML='&lt;div class=ph&gt;Add images/gallery5.jpg&lt;/div&gt;'"><figcaption>Statistical Physics conference, ICTS Bangalore</figcaption></figure>
+    <figure><img src="images/gallery6.jpg" alt="" onerror="this.outerHTML='&lt;div class=ph&gt;Add images/gallery6.jpg&lt;/div&gt;'"><figcaption>Kuchipudi performance</figcaption></figure>
   </div>
 </section>
+
+</main>
 
 <footer>
-  <div class="wrap">
-    sjose@mit.edu · Massachusetts Institute of Technology<br>
-    © 2026 Stephy Jose
-  </div>
+  © <span id="yr"></span> Stephy Jose · Built with HTML &amp; CSS.
 </footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  // active nav highlighting
+  const sections = document.querySelectorAll('section');
+  const navLinks = document.querySelectorAll('nav a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => { if (scrollY >= s.offsetTop - 90) current = s.id; });
+    navLinks.forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  });
+  // close mobile menu on click
+  navLinks.forEach(a => a.addEventListener('click', () => document.getElementById('menu').classList.remove('open')));
+</script>
 
 </body>
 </html>
