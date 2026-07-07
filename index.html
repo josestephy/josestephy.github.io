@@ -131,6 +131,27 @@
   .contact-card h3{font-size:1rem;margin:0 0 6px;}
   .contact-card p{margin:0;color:var(--muted);font-size:.92rem;}
 
+  /* ---------- MEDIA ---------- */
+  .media-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;}
+  .media-card{
+    display:flex;flex-direction:column;background:var(--card);
+    border:1px solid var(--line);border-radius:12px;overflow:hidden;
+    transition:transform .25s ease,box-shadow .25s ease;
+  }
+  .media-card:hover{transform:translateY(-4px);box-shadow:0 10px 28px rgba(0,0,0,.12);text-decoration:none;}
+  .media-thumb{position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;background:#e9ebf0;}
+  .media-thumb img{width:100%;height:100%;object-fit:cover;display:block;}
+  .media-thumb .play{
+    position:absolute;inset:0;margin:auto;width:58px;height:58px;
+    display:flex;align-items:center;justify-content:center;
+    background:rgba(138,28,43,.92);border-radius:50%;color:#fff;font-size:1.3rem;
+    box-shadow:0 4px 14px rgba(0,0,0,.3);
+  }
+  .media-body{padding:16px 18px;}
+  .media-kind{font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);}
+  .media-body h3{font-size:1.02rem;margin:6px 0 6px;color:var(--text);}
+  .media-body p{margin:0;font-size:.88rem;color:var(--muted);}
+
   /* ---------- GALLERY ---------- */
   .gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px;}
   .gallery figure{margin:0;border-radius:10px;overflow:hidden;background:var(--card);border:1px solid var(--line);}
@@ -172,6 +193,7 @@
         <li><a href="#research">Research</a></li>
         <li><a href="#cv">CV</a></li>
         <li><a href="#contact">Contact</a></li>
+        <li><a href="#media">Media</a></li>
         <li><a href="#gallery">Gallery</a></li>
       </ul>
     </nav>
@@ -227,7 +249,7 @@
   <p>Now, as a Schmidt Science Fellow at
   <a href="https://www.mit.edu/" target="_blank" rel="noopener">MIT</a>,
   I have been moving toward living matter, especially developing theoretical ideas for collective
-  organization and self-assembly in marine organisms such as star fishes and sea urchins.</p>
+  organization and self-assembly in marine organisms such as sea sponges.</p>
 
   <p>So overall, my trajectory has taken me from <strong>rigorous theoretical modeling of
   nonequilibrium systems</strong> to <strong>biologically motivated and experimentally grounded
@@ -239,12 +261,12 @@
     <span class="tag">Active Matter</span>
     <span class="tag">Biophysics</span>
     <span class="tag">Phase Transitions in Living Matter</span>
+    <span class="tag">Complex Systems</span>
     <span class="tag">Population Genetics</span>
     <span class="tag">Fluctuating Hydrodynamics</span>
     <span class="tag">Large Deviations</span>
     <span class="tag">Exclusion Processes</span>
     <span class="tag">First-Passage & Extreme Value Problems</span>
-    <span class="tag">Complex Systems</span>
   </div>
 
   <h3 style="font-size:1.15rem;margin-top:32px;">Education</h3>
@@ -429,11 +451,65 @@
   </div>
 </section>
 
+
+  <!-- ============ MEDIA ============ -->
+<section id="media">
+  <h2>Media &amp; Outreach</h2>
+  <p>Writing and talks aimed at sharing science with a broader audience.</p>
+  <div class="media-grid">
+
+    <!-- IndiaBioscience article -->
+    <a class="media-card"
+       href="https://indiabioscience.org/columns/stories-from-scientists/from-phd-to-postdoc-my-path-to-the-humboldt-fellowship"
+       target="_blank" rel="noopener">
+      <div class="media-thumb">
+        <img src="images/media-indiabioscience.jpg" alt="IndiaBioscience article"
+             onerror="this.parentNode.innerHTML='&lt;div class=ph&gt;Add images/media-indiabioscience.jpg&lt;/div&gt;'">
+      </div>
+      <div class="media-body">
+        <span class="media-kind">Article · IndiaBioscience</span>
+        <h3>From PhD to Postdoc: My Path to the Humboldt Fellowship</h3>
+        <p>A personal account of my journey and advice on applying for the Humboldt Research Fellowship.</p>
+      </div>
+    </a>
+
+    <!-- YouTube: In Focus / Active matter talk -->
+    <a class="media-card"
+       href="https://www.youtube.com/watch?v=RfinunGbv2Q"
+       target="_blank" rel="noopener">
+      <div class="media-thumb">
+        <img src="https://img.youtube.com/vi/RfinunGbv2Q/hqdefault.jpg" alt="Active matter video">
+        <span class="play">▶</span>
+      </div>
+      <div class="media-body">
+        <span class="media-kind">Video · TIFR Hyderabad</span>
+        <h3>In Focus: Active Matter Research</h3>
+        <p>Presenting my graduate research on active matter in the TIFR Hyderabad video series.</p>
+      </div>
+    </a>
+
+    <!-- Sawaal-Jawaab outreach -->
+    <a class="media-card"
+       href="https://www.youtube.com/watch?v=RfinunGbv2Q&ab_channel=TIFRHyderabad"
+       target="_blank" rel="noopener">
+      <div class="media-thumb">
+        <img src="images/media-sawaal.jpg" alt="Sawaal-Jawaab outreach"
+             onerror="this.parentNode.innerHTML='&lt;div class=ph&gt;Add images/media-sawaal.jpg&lt;/div&gt;'">
+      </div>
+      <div class="media-body">
+        <span class="media-kind">Outreach · TIFR</span>
+        <h3>Sawaal-Jawaab</h3>
+        <p>A TIFR initiative promoting basic science through public talks and outreach activities.</p>
+      </div>
+    </a>
+
+  </div>
+</section>
+
 <!-- ============ GALLERY ============ -->
 <section id="gallery">
   <h2>Gallery</h2>
-  <p>A glimpse of talks, conferences, fellowship events, and life beyond the equations.
-  Replace the placeholders below with your own images in the <code>images/</code> folder.</p>
+  <p>A glimpse of talks, conferences, fellowship events, and life beyond the equations.</p>
   <div class="gallery">
     <figure><img src="images/gallery1.jpg" alt="" onerror="this.outerHTML='&lt;div class=ph&gt;Add images/gallery1.jpg&lt;/div&gt;'"><figcaption>Schmidt Science Leadership Program, Oxford (2025)</figcaption></figure>
     <figure><img src="images/gallery2.jpg" alt="" onerror="this.outerHTML='&lt;div class=ph&gt;Add images/gallery2.jpg&lt;/div&gt;'"><figcaption>Annual Humboldt Meeting, Berlin (2025)</figcaption></figure>
