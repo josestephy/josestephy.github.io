@@ -85,6 +85,34 @@
   }
   .links a:hover{border-color:var(--accent);color:var(--accent);text-decoration:none;background:#fff;}
 
+  /* ---------- HERO BANNER (equations landscape) ---------- */
+  .hero-banner{
+    margin-top:34px;
+    border-radius:14px;
+    overflow:hidden;
+    border:1px solid var(--line);
+    box-shadow:0 8px 30px rgba(0,0,0,.12);
+    background:#0d0d0d;              /* fallback while image loads (blackboard feel) */
+  }
+  .hero-banner img{
+    width:100%;
+    height:auto;                     /* keeps landscape aspect ratio */
+    display:block;
+    /* If you prefer a fixed-height cinematic crop, use these two instead:
+       height:300px; object-fit:cover; */
+  }
+  .hero-banner figcaption{
+    padding:10px 16px;
+    font-size:.82rem;
+    color:var(--muted);
+    background:var(--card);
+    text-align:center;
+    font-style:italic;
+  }
+  @media(max-width:680px){
+    .hero-banner{margin-top:24px;}
+  }
+
   /* ---------- ABOUT ---------- */
   .about-grid{display:grid;grid-template-columns:1fr;gap:16px;}
   .tag-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;}
@@ -227,6 +255,13 @@
       </div>
     </div>
   </div>
+    <!-- NEW: landscape equations banner -->
+  <figure class="hero-banner">
+    <img src="images/equations-banner.png"
+         alt="Blackboard with equations from non-equilibrium statistical physics"
+         onerror="this.parentNode.innerHTML='&lt;div class=ph style=height:300px&gt;Add images/equations-banner.png&lt;/div&gt;'">
+    <figcaption>Selected equations from my work on active matter &amp; non-equilibrium statistical physics.</figcaption>
+  </figure>
 </section>
 
 <!-- ============ ABOUT ============ -->
@@ -439,7 +474,7 @@
       <h3>Affiliation</h3>
       <p>Condensed Matter Theory &amp; Physics of Living Systems (PLS)<br>
       Massachusetts Institute of Technology<br>Cambridge, MA, USA</p>
-    </div>
+      </div>
     <div class="contact-card">
       <h3>Profiles</h3>
       <p>
