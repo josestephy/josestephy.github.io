@@ -262,6 +262,43 @@
     .rf-figure{float:none;width:100%;max-width:100%;margin:0 0 18px;}
   }
 
+  /* ---------- PUBLICATIONS (numbered link cards) ---------- */
+  .pub-cards{list-style:none;padding:0;margin:0;counter-reset:pub;}
+  .pub-cards li{
+    position:relative;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-left:3px solid var(--accent);
+    border-radius:10px;
+    padding:16px 18px 16px 56px;
+    margin-bottom:12px;
+    transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;
+  }
+  .pub-cards li:hover{
+    transform:translateY(-3px);
+    box-shadow:0 8px 22px rgba(0,0,0,.10);
+    border-left-color:var(--accent-soft);
+  }
+  /* auto number badge */
+  .pub-cards li::before{
+    counter-increment:pub;
+    content:counter(pub);
+    position:absolute;left:16px;top:16px;
+    width:26px;height:26px;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--accent);color:#fff;
+    font-size:.8rem;font-weight:700;border-radius:50%;
+  }
+  .pub-cards .authors{display:block;color:var(--text);font-size:.88rem;}
+  .pub-cards .title{display:block;font-weight:600;font-size:.98rem;margin:3px 0;line-height:1.4;}
+  .pub-cards .title a{color:var(--text);}
+  .pub-cards .title a:hover{color:var(--accent);text-decoration:none;}
+  .pub-cards .venue{display:block;color:var(--muted);font-style:italic;font-size:.85rem;}
+  .pub-cards .pub-link{
+    display:inline-block;margin-top:6px;font-size:.8rem;font-weight:600;color:var(--accent);
+  }
+  .pub-cards .pub-link:hover{text-decoration:underline;}
+
   /* ---------- CV ---------- */
   .timeline{border-left:2px solid var(--line);padding-left:22px;margin-top:10px;}
   .tl-item{position:relative;padding-bottom:22px;}
@@ -767,49 +804,82 @@
   </p>
 </div>
 
-  <h3 style="font-size:1.2rem;margin-top:36px;">Publications</h3>
-  <ul class="pub-list">
-    <li>
-      <span class="authors">R. Bhutia, S. Jose, P. Perlekar &amp; K. Ramola</span>
-      <span class="title">Diffusive noise controls early stages of genetic demixing</span>
-      <span class="venue">Under review — arXiv:2505.23698 (2025)</span>
-    </li>
-    <li>
-      <span class="authors">S. Jose &amp; H. Löwen</span>
-      <span class="title">Jerky chiral active particles</span>
-      <span class="venue">New Journal of Physics 27, 115003 (2025)</span>
-    </li>
-    <li>
-      <span class="authors">A. Biswas, S. Jose, A. Pal &amp; K. Ramola</span>
-      <span class="title">Current fluctuations in finite-sized one-dimensional non-interacting passive and active systems</span>
-      <span class="venue">J. Phys. A: Math. Theor. 58, 035001 (2024)</span>
-    </li>
-    <li>
-      <span class="authors">S. Jose, A. Rosso &amp; K. Ramola</span>
-      <span class="title">Effect of initial conditions on current fluctuations in non-interacting active particles</span>
-      <span class="venue">J. Phys. A: Math. Theor. 57, 285002 (2024)</span>
-    </li>
-    <li>
-      <span class="authors">S. Jose, A. Rosso &amp; K. Ramola</span>
-      <span class="title">Generalized disorder averages and current fluctuations in run-and-tumble particles</span>
-      <span class="venue">Physical Review E 108, L052601 (2023)</span>
-    </li>
-    <li>
-      <span class="authors">S. Jose, R. Dandekar &amp; K. Ramola</span>
-      <span class="title">Current fluctuations in an interacting active lattice gas</span>
-      <span class="venue">J. Stat. Mech. 2023, 083208 (2023)</span>
-    </li>
-    <li>
-      <span class="authors">S. Jose</span>
-      <span class="title">First passage statistics of active random walks on one and two dimensional lattices</span>
-      <span class="venue">J. Stat. Mech. 2022, 113208 (2022)</span>
-    </li>
-    <li>
-      <span class="authors">S. Jose, D. Mandal, M. Barma &amp; K. Ramola</span>
-      <span class="title">Active random walks in one and two dimensions</span>
-      <span class="venue">Physical Review E 105, 064103 (2022)</span>
-    </li>
-  </ul>
+<h3 style="font-size:1.2rem;margin-top:36px;color:var(--accent);">Publications</h3>
+<ul class="pub-cards">
+
+  <li>
+    <span class="authors">R. Bhutia, S. Jose, P. Perlekar &amp; K. Ramola</span>
+    <span class="title">
+      <a href="https://arxiv.org/abs/2505.23698" target="_blank" rel="noopener">Diffusive noise controls early stages of genetic demixing</a>
+    </span>
+    <span class="venue">Under review — arXiv:2505.23698 (2025)</span>
+    <a class="pub-link" href="https://arxiv.org/abs/2505.23698" target="_blank" rel="noopener">View on arXiv →</a>
+  </li>
+
+  <li>
+    <span class="authors">S. Jose &amp; H. Löwen</span>
+    <span class="title">
+      <a href="https://iopscience.iop.org/article/10.1088/1367-2630/ae1c65" target="_blank" rel="noopener">Jerky chiral active particles</a>
+    </span>
+    <span class="venue">New Journal of Physics 27, 115003 (2025)</span>
+    <a class="pub-link" href="https://iopscience.iop.org/article/10.1088/1367-2630/ae1c65" target="_blank" rel="noopener">View article →</a>
+  </li>
+
+  <li>
+    <span class="authors">A. Biswas, S. Jose, A. Pal &amp; K. Ramola</span>
+    <span class="title">
+      <a href="https://iopscience.iop.org/article/10.1088/1751-8121/ada07a" target="_blank" rel="noopener">Current fluctuations in finite-sized one-dimensional non-interacting passive and active systems</a>
+    </span>
+    <span class="venue">J. Phys. A: Math. Theor. 58, 035001 (2024)</span>
+    <a class="pub-link" href="https://iopscience.iop.org/article/10.1088/1751-8121/ada07a" target="_blank" rel="noopener">View article →</a>
+  </li>
+
+  <li>
+    <span class="authors">S. Jose, A. Rosso &amp; K. Ramola</span>
+    <span class="title">
+      <a href="https://iopscience.iop.org/article/10.1088/1751-8121/ad5a55" target="_blank" rel="noopener">Effect of initial conditions on current fluctuations in non-interacting active particles</a>
+    </span>
+    <span class="venue">J. Phys. A: Math. Theor. 57, 285002 (2024)</span>
+    <a class="pub-link" href="https://iopscience.iop.org/article/10.1088/1751-8121/ad5a55" target="_blank" rel="noopener">View article →</a>
+  </li>
+
+  <li>
+    <span class="authors">S. Jose, A. Rosso &amp; K. Ramola</span>
+    <span class="title">
+      <a href="https://journals.aps.org/pre/abstract/10.1103/PhysRevE.108.L052601" target="_blank" rel="noopener">Generalized disorder averages and current fluctuations in run-and-tumble particles</a>
+    </span>
+    <span class="venue">Physical Review E 108, L052601 (2023)</span>
+    <a class="pub-link" href="https://journals.aps.org/pre/abstract/10.1103/PhysRevE.108.L052601" target="_blank" rel="noopener">View article →</a>
+  </li>
+
+  <li>
+    <span class="authors">S. Jose, R. Dandekar &amp; K. Ramola</span>
+    <span class="title">
+      <a href="https://iopscience.iop.org/article/10.1088/1742-5468/aceb53" target="_blank" rel="noopener">Current fluctuations in an interacting active lattice gas</a>
+    </span>
+    <span class="venue">J. Stat. Mech. 2023, 083208 (2023)</span>
+    <a class="pub-link" href="https://iopscience.iop.org/article/10.1088/1742-5468/aceb53" target="_blank" rel="noopener">View article →</a>
+  </li>
+
+  <li>
+    <span class="authors">S. Jose</span>
+    <span class="title">
+      <a href="https://iopscience.iop.org/article/10.1088/1742-5468/ac9bef" target="_blank" rel="noopener">First passage statistics of active random walks on one and two dimensional lattices</a>
+    </span>
+    <span class="venue">J. Stat. Mech. 2022, 113208 (2022)</span>
+    <a class="pub-link" href="https://iopscience.iop.org/article/10.1088/1742-5468/ac9bef" target="_blank" rel="noopener">View article →</a>
+  </li>
+
+  <li>
+    <span class="authors">S. Jose, D. Mandal, M. Barma &amp; K. Ramola</span>
+    <span class="title">
+      <a href="https://journals.aps.org/pre/abstract/10.1103/PhysRevE.105.064103" target="_blank" rel="noopener">Active random walks in one and two dimensions</a>
+    </span>
+    <span class="venue">Physical Review E 105, 064103 (2022)</span>
+    <a class="pub-link" href="https://journals.aps.org/pre/abstract/10.1103/PhysRevE.105.064103" target="_blank" rel="noopener">View article →</a>
+  </li>
+
+</ul>
 
 </section>
 
