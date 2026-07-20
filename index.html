@@ -167,6 +167,42 @@
   }
   .research-feature p{margin:0 0 14px;}
 
+  /* ---------- FROM THE LAB (highlighted papers) ---------- */
+  .lab-highlight{
+    background:linear-gradient(180deg,#fbf6f7 0%,var(--card) 100%);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:26px 26px 20px;
+    margin:10px 0 40px;
+  }
+  .lab-highlight .intro{
+    margin:0 0 18px;font-size:.98rem;color:var(--text);
+  }
+  .lab-papers{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:14px;
+  }
+  .lab-paper{
+    display:block;background:#fff;border:1px solid var(--line);
+    border-left:3px solid var(--accent);border-radius:10px;
+    padding:14px 16px;transition:transform .2s ease,box-shadow .2s ease;
+  }
+  .lab-paper:hover{
+    transform:translateY(-3px);box-shadow:0 8px 22px rgba(0,0,0,.10);
+    text-decoration:none;border-left-color:var(--accent-soft);
+  }
+  .lab-paper .lp-venue{
+    display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.05em;
+    text-transform:uppercase;color:var(--accent);margin-bottom:6px;
+  }
+  .lab-paper .lp-title{
+    font-family:'Lora',serif;font-weight:600;font-size:1rem;color:var(--text);
+    display:block;margin-bottom:6px;line-height:1.35;
+  }
+  .lab-paper .lp-cite{color:var(--muted);font-size:.83rem;}
+  .lab-paper .lp-arrow{color:var(--accent);font-weight:600;font-size:.8rem;margin-top:8px;display:inline-block;}
+
   /* image + text row */
   .rf-figure{
     float:right;
@@ -460,6 +496,45 @@
   instance, do unstable motifs disappear faster than passive coarsening would predict? Does
   organization improve through internal rearrangement rather than only cluster growth? And in
   mixed-cell experiments, do local mixed configurations become progressively more ordered over time?</p>
+
+  <h3 style="font-size:1.2rem;margin-top:40px;">From the lab</h3>
+<div class="lab-highlight">
+  <p class="intro">Check out some fascinating recent work from the
+  <a href="https://www.fakhrilab.com/" target="_blank" rel="noopener">Fakhri Lab</a> at MIT,
+  which explores non-equilibrium physics in living systems:</p>
+
+  <div class="lab-papers">
+
+    <a class="lab-paper" href="https://www.nature.com/articles/s41586-022-04889-6" target="_blank" rel="noopener">
+      <span class="lp-venue">Nature · 2022</span>
+      <span class="lp-title">Odd dynamics of living chiral crystals</span>
+      <span class="lp-cite">T. H. Tan et al., Nature 607, 287–293</span>
+      <span class="lp-arrow">Read →</span>
+    </a>
+
+    <a class="lab-paper" href="https://www.nature.com/articles/s41567-021-01164-9" target="_blank" rel="noopener">
+      <span class="lp-venue">Nature Physics · 2021</span>
+      <span class="lp-title">A hierarchy of protein patterns robustly decodes cell shape information</span>
+      <span class="lp-cite">M. C. Wigbers et al., Nat. Phys. 17, 578–584</span>
+      <span class="lp-arrow">Read →</span>
+    </a>
+
+    <a class="lab-paper" href="https://www.science.org/doi/10.1126/science.aac8167" target="_blank" rel="noopener">
+      <span class="lp-venue">Science · 2016</span>
+      <span class="lp-title">Broken detailed balance at mesoscopic scales in active biological systems</span>
+      <span class="lp-cite">C. Battle et al., Science 352, 604–607</span>
+      <span class="lp-arrow">Read →</span>
+    </a>
+
+    <a class="lab-paper" href="https://www.nature.com/articles/s41467-025-59341-w" target="_blank" rel="noopener">
+      <span class="lp-venue">Nature Communications · 2025</span>
+      <span class="lp-title">Sequence-encoded intermolecular base pairing modulates fluidity in DNA and RNA condensates</span>
+      <span class="lp-cite">S. Majumder et al., Nat. Commun. 16, 4258</span>
+      <span class="lp-arrow">Read →</span>
+    </a>
+
+  </div>
+</div>
 
 </div>
 
