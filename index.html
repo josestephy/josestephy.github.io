@@ -92,17 +92,15 @@
   .links a:hover{border-color:var(--accent);color:var(--accent);text-decoration:none;background:#fff;}
 
   /* ---------- FULL-BLEED HERO BANNER (equations) ---------- */
-  .hero-banner-full{
-    position:relative;
-    width:100vw;                          /* full viewport width */
-    left:50%;
-    right:50%;
-    margin-left:-50vw;                    /* break out of centered column */
-    margin-right:-50vw;
-    height:clamp(320px, 46vh, 520px);     /* responsive banner height */
-    background:#0d0d0d;
-    overflow:hidden;
-  }
+.hero-banner-full{
+  position:relative;
+  /* remove the 100vw lines */
+  margin-left:calc(50% - 50vw);
+  margin-right:calc(50% - 50vw);
+  height:clamp(320px, 46vh, 520px);
+  background:#0d0d0d;
+  overflow:hidden;
+}
   .hero-banner-full img{
     width:100%;
     height:100%;
